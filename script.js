@@ -28,7 +28,7 @@ var addEmployee = function(){
   document.getElementById('allEmployees').innerHTML = '';
     for (var i = 0; i < monthlyReport.length; i++) {
       //appending Employees information to DOM
-      var employeeInfo = '<h3 class="empname">' + monthlyReport[i].firstName + ' ' + monthlyReport[i].lastName + '</h3><h4>Employee Number: ' + Number(monthlyReport[i].idNumber) + '<br>JobTitle: ' + monthlyReport[i].jobTitle + '<br>Annual Salary: $ ' + monthlyReport[i].annualSalary.toFixed(2) + '<br></h4><button onClick="removeEmployee(' + i + ')">Remove Employee</button><p></p>';
+      var employeeInfo = '<h3>' + monthlyReport[i].firstName + ' ' + monthlyReport[i].lastName + '</h3><h4>Employee Number: ' + Number(monthlyReport[i].idNumber) + '<br>JobTitle: ' + monthlyReport[i].jobTitle + '<br>Annual Salary: $ ' + monthlyReport[i].annualSalary.toFixed(2) + '<br></h4><button onClick="removeEmployee(' + i + ')">Remove Employee</button><p></p>';
       document.getElementById('allEmployees').innerHTML += employeeInfo;
     }//end for
   }//end displayEmployees
@@ -36,14 +36,10 @@ var addEmployee = function(){
   // Hard Mode
   // Create a delete button that removes an employee from the DOM. Note that in hard mode, it need
   // not remove that Employee's salary from the reported total.
-  var removedsalary=0;
   removeEmployee = function(index){
     console.log('in removeEmployee');
     console.log('removing '+ monthlyReport[index].firstName + ' ' + monthlyReport[index].lastName)
-    var rem='<h3 class="empname">' + monthlyReport[index].firstName + ' ' + monthlyReport[index].lastName + '</h3><h4>Employee Number: ' + Number(monthlyReport[index].idNumber) + '<br>JobTitle: ' + monthlyReport[index].jobTitle + '<br>Annual Salary: $ ' + monthlyReport[index].annualSalary.toFixed(2) + '<br></h4><p></p>';
-    //Sum of annual salaries of removed employees
-    removedsalary += monthlyReport[index].annualSalary;
-    console.log("Annual Salary Removed",removedsalary);
+    var rem='<h3 class="former">' + monthlyReport[index].firstName + ' ' + monthlyReport[index].lastName + '</h3><h4 class="former">Employee Number: ' + Number(monthlyReport[index].idNumber) + '<br>JobTitle: ' + monthlyReport[index].jobTitle + '<br>Annual Salary: $ ' + monthlyReport[index].annualSalary.toFixed(2) + '<br></h4><p></p>';
     //move the removed employee to the "Former Employees" list on the DOM
     document.getElementById('formerEmp').innerHTML += rem;
     //Remove employee from the "Current Employees" list on the DOM
@@ -70,7 +66,7 @@ var addEmployee = function(){
   }//end if
   else if (isNaN(newEmployee.idNumber) || isNaN(newEmployee.annualSalary)){
     alert('Please input a number in the Employee ID Number and Annual Salary fields.')
-  }
+  }//end else if
   else{
     //push new employees to monthly report array
     monthlyReport.push(newEmployee);
@@ -80,7 +76,7 @@ var addEmployee = function(){
     console.log('monthly report:',monthlyReport);
     //display employees on DOM
     displayEmployees();
-}//end addEmployee
+  }//end else
   //display total Salary of all employees entered
   displaySalary();
-}
+}//end addEmployee

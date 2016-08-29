@@ -6,22 +6,28 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src='script.js'></script>
   </head>
-  <body><h2>Add Employee Information:<h2>
-  <label><input type="text" id="firstName" value="" placeholder="First Name"></label>
-  <label><input type="text" id="lastName" value="" placeholder="Last Name"></label>
-  <label><input type="text" id="idNumber" value="" placeholder="Employee ID Number"></label>
-  <label><input type="text" id="jobTitle" value="" placeholder="Job Title"></label>
-  <label><input type="text" id="annualSalary" value="" placeholder="Annual Salary"></label>
+  <body>
 
-  <button onClick='addEmployee()'>Add Employee</button>
-  <hr><h2>Total Monthly Salary
-  <div id='allSalary'>
-  </div></h2>
-  <hr><h2>Current Employees</h2>
-  <div id='allEmployees'>
+  <div class="left">
+    <h2>Add Employee Information<h2>
+    <label><input type="text" id="firstName" value="" placeholder="First Name"></label>
+    <label><input type="text" id="lastName" value="" placeholder="Last Name"></label>
+    <label><input type="text" id="idNumber" value="" placeholder="Employee ID Number"></label>
+    <label><input type="text" id="jobTitle" value="" placeholder="Job Title"></label>
+    <label><input type="text" id="annualSalary" value="" placeholder="Annual Salary"></label>
+    <button onClick='addEmployee()'>Add Employee</button>
   </div>
-  <hr><h2>Former Employees</h2>
-  <div id='formerEmp'>
+
+  <div class="right"><h2>Total Monthly Salary
+    <div id='allSalary'>
+    </div></h2>
+    <hr><h2>Current Employees</h2>
+    <div id='allEmployees'>
+    </div>
+    <hr><h2 class="former">Former Employees</h2>
+    <div id='formerEmp'>
+    </div>
   </div>
+
   </body>
 </html>
